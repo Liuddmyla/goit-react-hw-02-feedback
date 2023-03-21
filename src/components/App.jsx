@@ -1,4 +1,7 @@
 import React from 'react';
+import { Statistics } from './statistics/Statistics';
+import { FeedbackOptions } from './feedbackOptions/FeedbackOptions';
+import { Section } from './section/Section';
 
 class App extends React.Component{
   
@@ -31,6 +34,7 @@ class App extends React.Component{
       }
     })
   }
+
   countTotalFeedback = () => {
     return Object.values(this.state).reduce((acc, elem) => {
       return (acc + elem);
@@ -48,35 +52,23 @@ class App extends React.Component{
     
     return (
       <div>
-        <h2>Please leave feedback</h2>
-        <div>
-          <button type="button" onClick={this.handleGood}>Good</button>
-          <button type="button" onClick={this.handleNeutral}>Neutral</button>
-          <button type="button" onClick={this.handleNBad}>Bad</button>
-        </div>
-        <div>
-          <h2>Statistics</h2>
-          <div>
-            <span>Good:</span>
-            <span>{this.state.good}</span>
-          </div>
-          <div>
-            <span>Neutral:</span>
-            <span>{this.state.neutral}</span>
-          </div>
-          <div>
-            <span>Bad:</span>
-            <span>{this.state.bad}</span>
-          </div>
-          <div>
-            <span>Total:</span>
-            <span>{total}</span>
-          </div>
-          <div>
-            <span>Positive feedback:</span>
-            <span>{positivePercentage}%</span>            
-          </div>
-        </div>
+        <Section title="Please leave feedback">
+
+            <FeedbackOptions 
+              handleGood={this.handleGood}
+              handleNeutral={this.handleNeutral}
+              handleNBad={this.handleNBad}>
+            </FeedbackOptions>
+          
+            <Statistics
+              good={this.state.good}
+              neutral={this.state.neutral}
+              bad={this.state.bad}
+              total={total}
+              positivePercentage={positivePercentage}>      
+            </Statistics>
+
+        </Section>        
       </div>
     );
   }
