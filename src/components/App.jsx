@@ -36,9 +36,11 @@ class App extends React.Component{
   }
 
   countTotalFeedback = () => {
-    return Object.values(this.state).reduce((acc, elem) => {
-      return (acc + elem);
-    }, 0);    
+    let sum = 0;
+    Object.values(this.state).map(e => {
+      return sum += e;
+    })
+    return sum;
   }
 
   countPositiveFeedbackPercentage = () => {
