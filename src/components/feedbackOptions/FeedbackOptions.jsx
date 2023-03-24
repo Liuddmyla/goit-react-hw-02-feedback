@@ -1,18 +1,16 @@
 import PropTypes from 'prop-types';
 import css from './FeedbackOptions.module.css';
 
-export const FeedbackOptions = ({handleGood, handleNeutral, handleNBad}) => {
+export const FeedbackOptions = ({handleOnClick}) => {
     return (        
         <div className={css['btn-box']}>
-          <button type="button" onClick={handleGood} className={css['btn-item']}>Good</button>
-          <button type="button" onClick={handleNeutral} className={css['btn-item']}>Neutral</button>
-          <button type="button" onClick={handleNBad} className={css['btn-item']}>Bad</button>
+          <button type="button" name="good" onClick={handleOnClick} className={css['btn-item']}>Good</button>
+          <button type="button" name="neutral" onClick={handleOnClick} className={css['btn-item']}>Neutral</button>
+          <button type="button" name="bad" onClick={handleOnClick} className={css['btn-item']}>Bad</button>
         </div>    
     )
 }
 
 FeedbackOptions.propTypes = {
-    handleGood: PropTypes.func.isRequired,
-    handleNeutral: PropTypes.func.isRequired,
-    handleNBad: PropTypes.func.isRequired,
+    handleOnClick: PropTypes.func.isRequired,    
 }
