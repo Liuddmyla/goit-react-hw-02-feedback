@@ -42,7 +42,7 @@ class App extends React.Component{
       <>
         <Section title="Please leave feedback">
 
-          <FeedbackOptions handleOnClick={this.handleOnClick} >
+          <FeedbackOptions options={Object.keys(this.state)} handleOnClick={this.handleOnClick} >
           </FeedbackOptions>
           
           <Statistics
