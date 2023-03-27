@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
-import { Notification } from '../notification/Notification';
 import css from './Statistics.module.css';
 
 export const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
-   return (
+  
+  return (
     <div className={css['stat-box']}>
         <h2 className={css.title}>Statistics</h2> 
 
-           {total >= 1 ? (<><div>
+           <div>
             <span className={css['stat-text']}>Good:</span>
             <span className={css['stat-value']}>{good}</span>
           </div>
@@ -26,7 +26,7 @@ export const Statistics = ({ good, neutral, bad, total, positivePercentage }) =>
           <div>
             <span className={css['stat-text']}>Positive feedback:</span>
             <span className={css['stat-value']}>{positivePercentage}%</span>            
-          </div></>) : <Notification message="There is no feedback"></Notification>}           
+          </div>         
     </div>         
     ); 
 }
